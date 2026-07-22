@@ -1,15 +1,22 @@
 package org.factoriaf5.juanim;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MultiplicationTableTest {
 
+    private MultiplicationTable table;
+
+    @BeforeEach
+    void setup() {
+        table = new MultiplicationTable();
+    }
+
     @Test //Test original. Comprueba el funcionamento de generate con el 5.
     void generatesTableForFive() {
-        MultiplicationTable table = new MultiplicationTable();
-
+       
         List<String> result = table.generate(5);
 
         assertEquals(10, result.size());
@@ -18,7 +25,7 @@ class MultiplicationTableTest {
     }
     @Test //Test de escenario. Comprueba el funcionamiento del método generate con 0.
     void generatesTableForZero() {
-        MultiplicationTable table = new MultiplicationTable();
+        
         List<String> result = table.generate(0);
 
         assertEquals("0 x 1 = 0", result.get(0));
@@ -26,7 +33,7 @@ class MultiplicationTableTest {
     }
     @Test //Test de escenario. Comprueba el funcionamiento de los números negativos.
     void generatesTableForNegativeNumber() {
-        MultiplicationTable table = new MultiplicationTable();
+       
         List<String> result = table.generate (-3);
 
         assertEquals("-3 x 1 = -3", result.get(0));
